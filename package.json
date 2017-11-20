@@ -47,6 +47,7 @@
   "homepage": "https://github.com/Bjornskjald/InstagramUploader#readme",
   "dependencies": {
     "instagram-private-api": "^0.6.7",
+    "jimp": "^0.2.28",
     "materialize-css": "^1.0.0-alpha.1"
   }
 }
