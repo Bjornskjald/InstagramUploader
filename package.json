@@ -1,5 +1,6 @@
 {
-  "name": "instagram-uploader",
+  "name": "instagramuploader",
+  "productName": "InstagramUploader",
   "version": "1.0.0",
   "description": "Electron app for uploading multiple photos to Instagram",
   "main": "index.js",
@@ -8,15 +9,45 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bjornskjald/instagram-uploader.git"
+    "url": "git+https://github.com/Bjornskjald/InstagramUploader.git"
   },
   "author": "Bjornskjald",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Bjornskjald/instagram-uploader/issues"
+    "url": "https://github.com/Bjornskjald/InstagramUploader/issues"
   },
-  "homepage": "https://github.com/Bjornskjald/instagram-uploader#readme",
+  "build": {
+    "appId": "ml.bjorn.instagram-uploader",
+    "files": [
+      "css/",
+      "js/",
+      "html/",
+      "fonts/",
+      "icons/",
+      "node_modules/",
+      "main.html",
+      "package.json",
+      "index.js"
+    ],
+    "linux": {
+      "category": "Utility;Network",
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "icons"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icons/icon.ico"
+    }
+  },
+  "homepage": "https://github.com/Bjornskjald/InstagramUploader#readme",
   "dependencies": {
-    "instagram-private-api": "^0.6.7"
+    "instagram-private-api": "^0.6.7",
+    "jimp": "^0.2.28",
+    "materialize-css": "^1.0.0-alpha.1"
   }
 }

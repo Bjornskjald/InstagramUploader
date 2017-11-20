@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width" initial-scale="1" maximum-scale="1.0" user-scalable="no">
+	<link rel="stylesheet" href="node_modules/materialize-css/dist/css/materialize.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="style.css">
+	<title>Instagram Uploader</title>
+
+</head>
+
+<body>
+	<header>
+		<nav class="indigo lighten-1" role="navigation">
+			<div class="nav-wrapper container" id="navbar">
+				<a id="logo-container" href="#" style="font-size: 200%">Instagram Uploader</a>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<div class="input-field col s12" style="margin-top: 0">
+			<input id="username" type="text">
+			<label for="username">Username</label>
+		</div>
+		<div class="input-field col s12" style="margin-top: 0">
+			<input id="password" type="password">
+			<label for="password">Password</label>
+		</div>
+		<a class="waves-effect waves-light btn indigo" id="log-in-button" href="javascript:login()">Log in</a>
+	</main>
+	<footer class="page-footer indigo">
+		<div class="footer-copyright">
+			<div class="container">
+                <a href="#!" id="github-link" style="color:rgba(255,255,255,0.8)">Made by Bjornskjald</a>
+            </div>
+		</div>
+	</footer>
+	<script>
+        document.querySelector('#github-link').addEventListener("click", e => {
+            require('electron').shell.openExternal('https://github.com/Bjornskjald/InstagramUploader')
+        })
+		document.addEventListener("keydown", e => {
+			if (e.which === 123) {
+				require('electron').remote.getCurrentWindow().toggleDevTools();
+			}
+		});
+	</script>
+	<script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>
