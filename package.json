@@ -19,13 +19,11 @@
   "build": {
     "appId": "ml.bjorn.instagram-uploader",
     "files": [
-      "css/",
-      "js/",
       "html/",
-      "fonts/",
-      "icons/",
       "node_modules/",
       "main.html",
+      "script.js",
+      "style.css",
       "package.json",
       "index.js"
     ],
@@ -34,14 +32,12 @@
       "target": [
         "AppImage",
         "deb"
-      ],
-      "icon": "icons"
+      ]
     },
     "win": {
       "target": [
         "nsis"
-      ],
-      "icon": "icons/icon.ico"
+      ]
     }
   },
   "homepage": "https://github.com/Bjornskjald/InstagramUploader#readme",
