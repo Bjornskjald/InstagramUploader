@@ -67,25 +67,30 @@ function handleUpload (session, account) {
 function processFileAsync (file, session) {
 	return new Promise((resolve, reject) => {
 		var caption = document.querySelector('#caption').value
+		loadhtml('preloader')
 		if (!file.type.startsWith('image/')){ return }
 		var reader = new FileReader()
 		var b64string
 		reader.onload = e => { 
+			console.log('transformed to b64')
 			var input = Buffer.from(e.target.result.replace(/^data:([A-Za-z-+/]+);base64,/, ''), 'base64')
+			console.log('got buffer')
 			jimp.read(input).then(image => {
+				console.log('got image')
 				var w = image.bitmap.width
 				var h = image.bitmap.height
 				var c = w > h ? h : w
 				var wd = w > h ? (w - h)/2 : 0
 				var hd = h > w ? (h - w)/2 : 0
 				image.crop(wd, hd, c, c).getBuffer(jimp.MIME_JPEG, (err, output) => {
+					console.log('got cropped image')
 					Client.Upload.photo(session, output)
 					.then(upload => {
-						console.log('here works')
+						console.log('uploaded')
 						return Client.Media.configurePhoto(session, upload.params.uploadId, caption)
 					})
 					.then(medium => {
-						console.log('here too')
+						console.log('added caption')
 						console.log('success!', medium)
 						resolve()
 					})
