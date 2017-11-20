@@ -13,7 +13,7 @@ function login () {
 	const password = document.querySelector('#password').value
 	var device
 	try {
-		device = storage.storage.idx["i.instagram.com"]["/"].igfl.value
+		device = new Client.Device(storage.storage.idx["i.instagram.com"]["/"].igfl.value)
 	} catch (e) {
 		device = new Client.Device(username)
 	}
