@@ -59,6 +59,7 @@ function handleUpload (session, account) {
 		results.then(a => {
 			alert('All photos uploaded!')
 			loadhtml('upload')
+			document.querySelector('#logged-in').innerHTML += account.params.fullName
 		}).catch(console.error)
 	})
 }
